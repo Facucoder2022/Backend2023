@@ -7,7 +7,7 @@ class ProductManager{
         return this.productos
     }
     addProduct = (title,description,price,thumbnail,code,stock) => {
-        if (!findProductByCode (code)){
+        
         let producto = {
             title,
             description,
@@ -18,12 +18,12 @@ class ProductManager{
         }
 
 
-        if (this.producto.length===0){
+        if (this.productos.length===0){
             producto.id=1;
         }else{
-            producto.id = this.producto[this.producto.length-1].id +1;
+            producto.id = productos[productos.length-1].id +1;
         }
-        this.productos.push(producto);}
+        this.productos.push(producto);
     }
 
     findProductByCode = (code) => {
@@ -41,25 +41,39 @@ class ProductManager{
 
 $(document).ready(cargarEvento)
 
+let manager;
 function cargarEvento(){
+
+    manager = new ProductManager(); 
     
     $("#btnMostrarProductos").click(MostrarProductos);
     $("#bntCargarProducto1").click(CargarProducto1);
+    $("#bntCargarProducto2").click(CargarProducto2);
     $("#divMostrarError").html("Error, para mostrar");
 }
 
 function MostrarProductos(){
+    const productos = manager.getProductos(); 
+    console.log(productos);
     let imprimir = "MostrandoProductos";
     BorrarTextos();
-    let productos = ProductManager.getProductos();
-    console.log (productos);
     $("#divMostrarProductos").html(imprimir);
 }
 
 function CargarProducto1(){
-    let imprimir = "CargarProducto1";
+    manager.addProduct("Buzo", "buzo de chicago bulls", "2500", "", "1111", "10")
+    let imprimir = "Se cargo el producto con exito";
     BorrarTextos();
     $("#divMostrarProductoCargado").html(imprimir);
+    
+}
+
+function CargarProducto2(){
+    manager.addProduct("Short", "short de chicago bulls", "1500", "", "2222", "8")
+    let imprimir = "Se cargo el producto con exito";
+    BorrarTextos();
+    $("#divMostrarProductoCargado").html(imprimir);
+    
 }
 
 function BorrarTextos(){
