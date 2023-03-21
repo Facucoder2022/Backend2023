@@ -48,7 +48,6 @@ function cargarEvento(){
     
     $("#btnMostrarProductos").click(MostrarProductos);
     $("#bntCargarProducto1").click(CargarProducto1);
-    $("#bntCargarProducto2").click(CargarProducto2);
     $("#divMostrarError").html("Error, para mostrar");
 }
 
@@ -62,14 +61,6 @@ function MostrarProductos(){
 
 function CargarProducto1(){
     manager.addProduct("Buzo", "buzo de chicago bulls", "2500", "", "1111", "10")
-    let imprimir = "Se cargo el producto con exito";
-    BorrarTextos();
-    $("#divMostrarProductoCargado").html(imprimir);
-    
-}
-
-function CargarProducto2(){
-    manager.addProduct("Short", "short de chicago bulls", "1500", "", "2222", "8")
     let imprimir = "Se cargo el producto con exito";
     BorrarTextos();
     $("#divMostrarProductoCargado").html(imprimir);
