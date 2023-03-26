@@ -26,11 +26,11 @@ class ProductManager{
         this.productos.push(producto);
     }
 
-    findProductByCode = (code) => {
+    findProductByCode = (id) => {
         encontre = false
         i=0
         while (i<this.productos.length && !encontre){
-            if (this.productos[i].code==code){
+            if (this.productos[i].id==id){
                 encontre=true
             }
             i++;

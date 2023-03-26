@@ -1,0 +1,26 @@
+[
+	{
+		"tilte": "Buzo",
+		"description": "buzo de chicago bulls",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": 1,
+        "stock": 10
+	},
+	{
+		"tilte": "Buzo",
+		"description": "buzo de chicago bulls",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": 1,
+        "stock": 10
+	},
+	{
+		"tilte": "Buzo",
+		"description": "buzo de chicago bulls",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": 1,
+        "stock": 10
+	}
+]
