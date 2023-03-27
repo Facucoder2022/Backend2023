@@ -10,7 +10,7 @@ export default class ManagerProductos {
             return users;
         }
         else{
-            return [] //No hay usuarios porque no hay archivo, pero eso no nos limita a enviar un arreglo vacío.
+            return []
         }
     }
     crearProducto = async (producto) => {

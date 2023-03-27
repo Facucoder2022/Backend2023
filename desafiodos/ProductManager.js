@@ -14,8 +14,8 @@ const env = async() =>{
         stock: 10
     }
     let result = await manager.crearProducto(user);
-    console.log(result); //Debe devolver al usuario con un id
+    console.log(result);
     let segundaConsultaProductos = await manager.consultarProductos();
-    console.log(segundaConsultaProductos); //Debe devolver al usuario instertado
+    console.log(segundaConsultaProductos);
 }
 env();
