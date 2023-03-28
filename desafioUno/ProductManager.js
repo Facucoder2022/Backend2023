@@ -2,7 +2,7 @@ let productos = []
 
 class ProductManager {
     constructor (){
-        this.products=[]
+        this.products=productos
     }
 
     addProduct(newProduct){
