@@ -27,6 +27,10 @@ class ProductManager {
         if (!product) return 'Product Not Found'
         return product
     }
+    updateProducts(id){
+        let product = this.products.find(prod => prod.id === id)
+    }
+    deleteProducts(){}
 }
 
 const product = new ProductManager()
