@@ -27,6 +27,30 @@ class ProductManager {
         if (!product) return 'Product Not Found'
         return product
     }
+    updateProducts(id, upProd){
+
+        let product = this.products.find(prod => prod.id === id);
+        
+        if(product){
+            product.title=upProd.title;
+            product.description=upProd.description;
+            product.price=upProd.price;
+            product.thumbnail=upProd.thumbnail;
+            product.code=upProd.code;
+            product.stock=upProd.stock;
+            return "Producto actualizado";
+        }else{
+            return "No se encontre el producto a actualizar";
+        }
+
+    }
+
+    deleteProducts(id){
+
+        let productos = this.products.filter(x => x.id != id);
+        console.log(productos);
+        return this.products = productos;
+    }
 }
 
 const product = new ProductManager()
@@ -46,6 +70,15 @@ product.addProduct({
     thumbnail: 'Sin imagen',
     code: 005,
     stock: 8
+})
+
+product.updateProducts(1, {
+    title: 'Producto 1 Editado',
+    description: 'Sin descripcion, Editado',
+    price: 1900,
+    thumbnail: 'Sin imagen',
+    code: 004,
+    stock: 10
 })
 
 console.log(product.getProducts());
