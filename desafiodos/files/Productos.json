@@ -1,26 +1,26 @@
 [
 	{
 		"tilte": "Buzo",
-		"description": "buzo de chicago bulls",
+		"description": "Buzo de chicago bulls",
 		"price": 2500,
 		"thumbnail": "Sin imagen",
-		"code": 1,
+		"code": 333,
         "stock": 10
 	},
 	{
-		"tilte": "Buzo",
-		"description": "buzo de chicago bulls",
-		"price": 2500,
+		"tilte": "Short",
+		"description": "Short de Golden State Warriors",
+		"price": 1500,
 		"thumbnail": "Sin imagen",
-		"code": 1,
-        "stock": 10
+		"code": 222,
+        "stock": 8
 	},
 	{
-		"tilte": "Buzo",
-		"description": "buzo de chicago bulls",
-		"price": 2500,
+		"tilte": "Championes",
+		"description": "Championes de basket",
+		"price": 3500,
 		"thumbnail": "Sin imagen",
-		"code": 1,
-        "stock": 10
+		"code": 111,
+        "stock": 5
 	}
 ]
