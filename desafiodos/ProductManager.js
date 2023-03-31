@@ -1,8 +1,19 @@
 let productos = []
 
+const fs = require("fs");
+
 class ProductManager {
     constructor (){
         this.products=productos
+        this.path = './files/Productos.json'
+    }
+
+    getProducts = async () => {
+        let data = [];
+        await fs.promises
+             .readFile(this.path, "utf-8")
+             .then((response) => data.push (JSON.parse(response)));
+        return data;
     }
 
     addProduct(newProduct){
@@ -20,7 +31,7 @@ class ProductManager {
         return this.products.push({id: this.products.length+1, ... newProduct})
     }
     getProducts(){
-        return this.product
+        return this.products
     }
     getProductById(id){
         let product = this.products.find(prod => prod.id === id)
@@ -60,7 +71,7 @@ product.addProduct({
     description: 'Sin descripcion',
     price: 1800,
     thumbnail: 'Sin imagen',
-    code: 004,
+    code: 400,
     stock: 10
 })
 product.addProduct({
@@ -68,7 +79,7 @@ product.addProduct({
     description: 'Sin descripcion',
     price: 2800,
     thumbnail: 'Sin imagen',
-    code: 005,
+    code: 500,
     stock: 8
 })
 
@@ -77,7 +88,7 @@ product.updateProducts(1, {
     description: 'Sin descripcion, Editado',
     price: 1900,
     thumbnail: 'Sin imagen',
-    code: 004,
+    code: 400,
     stock: 10
 })
 
