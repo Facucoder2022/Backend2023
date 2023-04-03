@@ -1,6 +1,4 @@
-import { promises } from "fs"
-
-const fsP = promises
+import fs from "fs"
 
 const products = []
 const path = './files/Productos.json'
@@ -13,6 +11,9 @@ class ProductManager {
     }
 
     addProduct(newProduct){
+        const productsJSON = fs.readFileSync(this.path, "utf-8")
+        const productsParsed = JSON.parse(productsJSON)
+        this.products = productsParsed
 
         if (!newProduct.title ||
             !newProduct.description ||
@@ -24,7 +25,9 @@ class ProductManager {
         let product = this.products.find(prod => prod.code === newProduct.code)
         if(product) return 'Un producto con este code ya fue ingresado'
 
-        return this.products.push({id: this.products.length+1, ... newProduct})
+        this.products.push({id: this.products.length+1, ... newProduct})
+        fs.promises.writeFile(path, JSON.stringify(this.products, null, 2), "utf-8")
+        return "Producto agregado"
     }
 
     deleteProduct (path, id) {
@@ -35,10 +38,10 @@ class ProductManager {
             }
             const product = JSON.parse(data)
             const index = product.findIndex(product => product.id === id)
-            if (index === -1) {
+            if (index !== -1) {
                 product.splice(index, 1)
             } else {
-                console.log (`No existe ningún producto con el id ${id}`)
+                console.log(`No existe ningún producto con el id ${id}`)
                 return
             }
             fs.writeFile(path, JSON.stringify(product, null, 2), "utf-8" , err => {
