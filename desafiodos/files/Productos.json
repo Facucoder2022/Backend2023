@@ -16,11 +16,67 @@
         "stock": 8
 	},
 	{
-		"title": "Producto 1 Editado",
-        "description": "Sin descripcion, Editado",
+		"title": "Prod 3",
+        "description": "Sin descripcion",
         "price": 1900,
         "thumbnail": "Sin imagen",
-        "code": 400,
+        "code": 333,
+        "stock": 10
+	},
+	{
+		"title": "Prod 4",
+		"description": "Sin descripcion",
+		"price": 2100,
+		"thumbnail": "Sin Imagen",
+		"code": 444,
+        "stock": 10
+	},
+	{
+		"title": "Prod 5",
+		"description": "Sin descripcion",
+		"price": 2100,
+		"thumbnail": "Sin Imagen",
+		"code": 555,
+        "stock": 10
+	},
+	{
+		"title": "Prod 6",
+		"description": "Sin descripcion",
+		"price": 2100,
+		"thumbnail": "Sin Imagen",
+		"code": 666,
+        "stock": 10
+	},
+	{
+		"title": "Prod 7",
+		"description": "Sin descripcion",
+		"price": 2100,
+		"thumbnail": "Sin Imagen",
+		"code": 777,
+        "stock": 10
+	},
+	{
+		"title": "Prod 8",
+		"description": "Sin descripcion",
+		"price": 2100,
+		"thumbnail": "Sin Imagen",
+		"code": 888,
+        "stock": 10
+	},
+	{
+		"title": "Prod 9",
+		"description": "Sin descripcion",
+		"price": 2100,
+		"thumbnail": "Sin Imagen",
+		"code": 999,
+        "stock": 10
+	},
+	{
+		"title": "Prod 10",
+		"description": "Sin descripcion",
+		"price": 2100,
+		"thumbnail": "Sin Imagen",
+		"code": 1010,
         "stock": 10
 	}
 ]
