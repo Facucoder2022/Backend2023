@@ -1,6 +1,7 @@
 let productos = []
 
-const fs = require("fs");
+import fs from 'fs';
+import { parse } from "path";
 
 class ProductManager {
     constructor (){
@@ -9,11 +10,8 @@ class ProductManager {
     }
 
     getProducts = async () => {
-        let data = [];
-        await fs.promises
-             .readFile(this.path, "utf-8")
-             .then((response) => data.push (JSON.parse(response)));
-        return data;
+        let productsArray = await fs.promises.readFile(this.path, "utf-8")
+        return JSON,parse(productsArray);
     }
 
     addProduct(newProduct){

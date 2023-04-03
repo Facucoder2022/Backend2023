@@ -14,5 +14,13 @@
 		"thumbnail": "Sin Imagen",
 		"code": 222,
         "stock": 8
+	},
+	{
+		"title": "Producto 1 Editado",
+        "description": "Sin descripcion, Editado",
+        "price": 1900,
+        "thumbnail": "Sin imagen",
+        "code": 400,
+        "stock": 10
 	}
 ]
