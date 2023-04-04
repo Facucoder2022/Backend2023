@@ -31,7 +31,7 @@ class ProductManager {
     }
 
     deleteProduct (path, id) {
-        fsP.readFile(path, "utf-8",(err,data) => {
+        fs.readFile(path, "utf-8",(err,data) => {
             if(err){
                 console.log(err)
                 return
@@ -55,14 +55,14 @@ class ProductManager {
     }
 
     createJsonFile = () => {
-        fsP.writeFile(path.JSON.stringify([ ... product.products],null,2),"utf-8", (err) => {
+        fs.promise.writeFile(path.JSON.stringify([ ... product.products],null,2),"utf-8", (err) => {
             if(err) return console.log (err)
         })
     }
 
     getProducts = async() => {
         try {
-            let data = await fsP.readFile(path, "utf-8")
+            let data = fs.readFile(path, "utf-8")
             const parseData = JSON.parse(data)
             console.log(parseData)
             return parseData
@@ -104,5 +104,3 @@ class ProductManager {
 }
 
 const product = new ProductManager()
-
-console.log(product.getProducts());
