@@ -78,7 +78,7 @@ class ProductManager {
             let productId = product.find(prod => prod.id === pid)
 
             if(!product) return "Producto no ecnotrado"
-               console.log("Producto from JSON with id: ",productID)
+               console.log("Producto from JSON with id: ",productId)
                return productId
         }
     }
