@@ -10,7 +10,7 @@ class ProductManager {
         this.path = path
     }
 
-    addProduct(newProduct){
+    async addProduct(newProduct)  {
         const productsJSON = fs.readFileSync(this.path, "utf-8")
         const productsParsed = JSON.parse(productsJSON)
         this.products = productsParsed
@@ -18,6 +18,8 @@ class ProductManager {
         if (!newProduct.title ||
             !newProduct.description ||
             !newProduct.price ||
+            !newProduct.status ||
+            !newProduct.category ||
             !newProduct.thumbnail ||
             !newProduct.code ||
             !newProduct.stock ) return 'todos los campos son necesarios'
@@ -26,11 +28,11 @@ class ProductManager {
         if(product) return 'Un producto con este code ya fue ingresado'
 
         this.products.push({id: this.products.length+1, ... newProduct})
-        fs.promises.writeFile(path, JSON.stringify(this.products, null, 2), "utf-8")
+        fs.promises.writeFile(this.path, JSON.stringify(this.products, null, 2), "utf-8")
         return "Producto agregado"
     }
 
-    deleteProduct (path, id) {
+    async deleteProduct (path, id)  {
         fs.readFile(path, "utf-8",(err,data) => {
             if(err){
                 console.log(err)

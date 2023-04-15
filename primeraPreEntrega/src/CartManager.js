@@ -18,7 +18,7 @@ class CartManager {
 
 	async getCarts() {
 		try {
-			const data = await promises.readFile(this.path, "utf-8");
+			const data = await fs.promise.readFile(this.path, "utf-8");
 			this.cart = JSON.parse(data);
 
 			return this.cart;
@@ -29,7 +29,7 @@ class CartManager {
 
 	async getCartById(cartId) {
 		try {
-			const data = await promises.readFile(this.path, "utf-8");
+			const data = await fs.promise.readFile(this.path, "utf-8");
 			this.cart = JSON.parse(data);
 
 			if (parseInt(cartId) > this.cart.length || parseInt(cartId) <= 0) {
@@ -61,7 +61,7 @@ class CartManager {
 
 			CartArray.push(arrayObject);
 
-			await promises.writeFile(
+			await fs.promise.writeFile(
 				this.path,
 				JSON.stringify(CartArray),
 				"utf-8"
@@ -99,7 +99,7 @@ class CartManager {
 				? (cartFound.products = cartById.products)
 				: allCarts.push(cartById);
 
-			await promises.writeFile(this.path, JSON.stringify(allCarts), "utf-8");
+			await fs.promise.writeFile(this.path, JSON.stringify(allCarts), "utf-8");
 
 			return allCarts;
 		} catch (error) {
