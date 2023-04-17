@@ -1,9 +1,13 @@
 const fs = require("fs");
 
+const cart = []
+const path = './files/Carrito.json'
+
 class CartManager {
-	constructor(path) {
-		this.path = path || "./src/cart.json";
-		this.cart = [];
+	constructor() {
+		this.cart = cart
+		this.path = path
+		
 	}
 
 	async validateCart(newArray) {
