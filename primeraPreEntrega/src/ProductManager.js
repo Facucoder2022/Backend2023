@@ -107,7 +107,5 @@ class ProductManager {
     }
 
 
-const product = new ProductManager()
-
-console.log(product.getProducts());
+    module.exports = ProductManager;
 
