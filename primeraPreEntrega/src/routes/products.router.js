@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
 
 		if (!limit || limit > productsArray.length) {
 			res.send(productsArray);
+			return res.send(productsArray);
 		}
 
 		return res.send(productsArray.slice(0, limit));

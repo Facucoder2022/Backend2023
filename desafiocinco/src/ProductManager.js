@@ -4,7 +4,7 @@ const products = []
 const path = './files/Productos.json'
 
 
-export class ProductManager {
+class ProductManager {
     constructor (){
         this.products=products
         this.path = path

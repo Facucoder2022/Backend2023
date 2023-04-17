@@ -1,5 +1,5 @@
-import { Router } from "express";
-import ProductManager from "../ProductManager";
+const { Router } = require("express");
+const ProductManager = require("../ProductManager");
 const router = Router();
 const productManager = new ProductManager();
 
@@ -26,4 +26,4 @@ router.get("/realtimeproducts", async (req, res) => {
 	};
 	res.status(200).render("realTimeProducts", productsObj);
 });
-export default router;
+module.exports = router;
