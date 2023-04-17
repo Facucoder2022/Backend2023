@@ -68,17 +68,3 @@ socket.on("productos", (data) => {
 	});
 	listProducts.innerHTML = products;
 });
-
-// socket.emit("message", "Hola me estoy comunicando desde un cliente socket");
-
-// socket.on("evento-para-el-cliente", (data) => {
-// 	console.log(data);
-// });
-
-// socket.on("evento-para-todos-menos-el-socket-actual", (data) => {
-// 	console.log(data);
-// });
-
-// socket.on("evento-para-todos", (data) => {
-// 	console.log(data);
-// });

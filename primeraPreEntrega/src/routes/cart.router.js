@@ -50,4 +50,4 @@ router.post("/:cId/product/:pId", async (req, res) => {
 	}
 });
 
-export default router;
+module.exports = router;
