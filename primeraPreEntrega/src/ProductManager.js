@@ -1,4 +1,4 @@
-import fs from "fs"
+const fs = require("fs");
 
 const products = []
 const path = './files/Productos.json'
@@ -83,26 +83,26 @@ class ProductManager {
                console.log("Producto from JSON with id: ",productId)
                return productId
         }
-    }
-
-    updateProducts = async (id, updatedFields) => {
+    
+        updateProducts = async (id, updatedFields) => {
         
-        try {
-            const products = await fs.promises.readFile(this.path, "utf-8");
-            const parsedProducts = JSON.parse (products);
-            const index = parsedProducts.findIndex ((p) => p.id === id);
-
-            if (index !== -1) {
-                parsedProducts[index] = {... parsedProducts [index], ...updatedFields };
-                await fs.promises.writeFile(this.path, JSON.stringify(parsedProducts, null, 2));
-
-                return parsedProducts[index];
-            } else {
-                console.log(`No existe ningún producto con el id ${id}`);
-                return null;
+            try {
+                const products = await fs.promises.readFile(this.path, "utf-8");
+                const parsedProducts = JSON.parse (products);
+                const index = parsedProducts.findIndex ((p) => p.id === id);
+    
+                if (index !== -1) {
+                    parsedProducts[index] = {... parsedProducts [index], ...updatedFields };
+                    await fs.promises.writeFile(this.path, JSON.stringify(parsedProducts, null, 2));
+    
+                    return parsedProducts[index];
+                } else {
+                    console.log(`No existe ningún producto con el id ${id}`);
+                    return null;
+                }
+            } catch (error) {
+                console.error(error);
             }
-        } catch (error) {
-            console.error(error);
         }
     }
 
@@ -110,3 +110,4 @@ class ProductManager {
 const product = new ProductManager()
 
 console.log(product.getProducts());
+

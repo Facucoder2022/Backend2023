@@ -1,5 +1,5 @@
-import { Router } from "express";
-import ProductManager from "../ProductManager";
+const { Router } = require("express");
+const ProductManager = require("../ProductManager");
 
 const router = Router();
 const productManager = new ProductManager();
@@ -69,7 +69,7 @@ router.put("/:pId", async (req, res) => {
 router.delete("/:pId", async (req, res) => {
 	try {
 		const { pId } = req.params;
-		const productById = await productManager.deleteProduct(path, pId);
+		const productById = await productManager.deleteProduct(pId);
 		return res.status(200).send({
 			status: "success",
 			payload: { productById },
@@ -80,4 +80,5 @@ router.delete("/:pId", async (req, res) => {
 	}
 });
 
-export default router;
+module.exports = router;
+
