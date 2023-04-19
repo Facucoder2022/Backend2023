@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 
 const products = []
 const path = './files/Productos.json'
@@ -11,7 +11,7 @@ class ProductManager {
     }
 
     async addProduct(newProduct)  {
-        const productsJSON = fs.readFileSync(this.path, "utf-8")
+        const productsJSON = await fs.readFileSync(this.path, "utf-8")
         const productsParsed = JSON.parse(productsJSON)
         this.products = productsParsed
 
@@ -27,34 +27,26 @@ class ProductManager {
         let product = this.products.find(prod => prod.code === newProduct.code)
         if(product) return 'Un producto con este code ya fue ingresado'
 
-        this.products.push({id: this.products.length+1, ... newProduct})
-        fs.promises.writeFile(this.path, JSON.stringify(this.products, null, 2), "utf-8")
+        this.products.push({id: this.products[this.products.length -1].id + 1, ... newProduct})
+        await fs.writeFile(this.path, JSON.stringify(this.products, null, 2), "utf-8")
         return "Producto agregado"
     }
 
-    async deleteProduct (path, id)  {
-        fs.readFile(path, "utf-8",(err,data) => {
-            if(err){
-                console.log(err)
-                return
-            }
-            const product = JSON.parse(data)
-            const index = product.findIndex(product => product.id === id)
+    async deleteProduct (id)  {
+        const product = await fs.readFile(path, "utf-8")
+        const productsParsed = JSON.parse(product)
+        const index = productsParsed.findIndex(product => product,id === id)
             if (index !== -1) {
-                product.splice(index, 1)
+                productsParsed.splice(index, 1)
             } else {
                 console.log(`No existe ningún producto con el id ${id}`)
-                return
+                return `No existe ningún producto con el id ${id}`
             }
-            fs.writeFile(path, JSON.stringify(product, null, 2), "utf-8" , err => {
-                if(err) {
-                    console.log(err)
-                } else {
-                    console.log (`Producto removido con el id ${id}`)
-                }
-            })
-        })
-    }
+            await fs.writeFile(path, JSON.stringify(productsParsed, null, 2), "utf-8")
+            return `No existe ningún producto con el id ${id}`
+            
+            }
+    
 
     createJsonFile = () => {
         fs.writeFile(path.JSON.stringify([ ... product.products],null,2),"utf-8", (err) => {
@@ -74,7 +66,7 @@ class ProductManager {
     }
 
     async getProductById(pid) {
-        const contenido = fs.readFile(this.path, "utf-8")
+        const contenido = await fs.readFile(this.path, "utf-8")
 
             let product = JSON.parse(contenido)
             let productId = product.find(prod => prod.id === pid)
