@@ -3,11 +3,18 @@ const { Schema, model } = require("mongoose");
 const collection = "carts";
 
 const cartSchema = new Schema({
-	products: {
-		type: [],
-		required: true,
-	},
-});
+	products: [{
+		product: {
+			type: Schema.Types.ObjectId,
+			ref: 'products'
+		},
+	}]
+})
+
+cartSchema.pre(('findOne', function(){
+    this.populate('products.product')
+})
+)
 
 const cartModel = model(collection, cartSchema);
 
