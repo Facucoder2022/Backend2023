@@ -3,6 +3,8 @@ const {connectDb} = require('./config/configServer.js')
 const routerServer = require('./routes')
 const logger = require('morgan')
 
+require("./db.js");
+
 const app = express()
 const PORT = 8080
 

@@ -1,12 +1,12 @@
 const { Router } = require("express");
-// const ProductManager = require("../ProductManager");
-const ProductManager = require("../dao/model/product.model");
+// const productModel = require("../ProductManager");
+const productModel = require("../dao/model/product.model");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
 	try {
-		const productsArray = await productManager.getProducts();
+		const productsArray = await productModel.getProducts();
 		let limit = req.query.limit;
 
 		if (!limit || limit > productsArray.length) {
@@ -22,8 +22,8 @@ router.get("/", async (req, res) => {
 router.get("/:pId", async (req, res) => {
 	try {
 		const { pId } = req.params;
-		const productById = await productManager.getProductById(parseInt(pId));
-		const productsArray = await productManager.getProducts();
+		const productById = await productModel.getProductById(parseInt(pId));
+		const productsArray = await productModel.getProducts();
 
 		if (!pId || pId > productsArray.length) {
 			return res
@@ -40,7 +40,7 @@ router.get("/:pId", async (req, res) => {
 router.post("/", async (req, res) => {
 	try {
 		const body = req.body;
-		const productAdded = await productManager.addProduct(body);
+		const productAdded = await productModel.addProduct(body);
 		return res.status(200).send({
 			status: 200,
 			payload: { productAdded },
@@ -55,7 +55,7 @@ router.put("/:pId", async (req, res) => {
 	try {
 		const { pId } = req.params;
 		const body = req.body;
-		const productById = await productManager.updateProduct(pId, body);
+		const productById = await productModel.updateProduct(pId, body);
 
 		return res.status(200).send({
 			status: "success",
@@ -69,7 +69,7 @@ router.put("/:pId", async (req, res) => {
 router.delete("/:pId", async (req, res) => {
 	try {
 		const { pId } = req.params;
-		const productById = await productManager.deleteProduct(pId);
+		const productById = await productModel.deleteProduct(pId);
 		return res.status(200).send({
 			status: "success",
 			payload: { productById },
