@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { filtro } = require("../utils/controllers/filters");
-require("dotenv").config();
+//require("dotenv").config();
 const router = Router();
 
 router.get("/filters", async (req, res, next) => {
