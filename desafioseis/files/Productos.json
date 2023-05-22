@@ -99,7 +99,7 @@
     "title":"titulo creado desde socket.io",
     "description":"13",
     "code":"codigo socket",
-    "price":43,
+    "price":"43",
     "stock":"34",
     "category":"testeo",
     "thumbnails":"no hay foto nunca, como se agrega??",

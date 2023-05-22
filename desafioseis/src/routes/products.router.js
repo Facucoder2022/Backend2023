@@ -1,6 +1,6 @@
 const { Router } = require("express");
 // const productModel = require("../ProductManager");
-const productManager = require("../dao/product.mongo");
+const productManager = require("../dao/model/product.model");
 
 const router = Router();
 
@@ -13,7 +13,7 @@ router.get('/', async (req,res)=>{
         })
         
     } catch (error) {
-        console.log(error)
+        cconsole.log(error)
     }
 })
 router.get('/:pid', async (req,res)=>{

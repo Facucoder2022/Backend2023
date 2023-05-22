@@ -2,7 +2,7 @@ const {connect} = require('mongoose')
 const { productModel } = require('../dao/model/product.model')
 const { cartModel } = require('../dao/model/cart.model')
 
-let url = 'mongodb+srv://facumanta10:6VXFGaou1y8F4X8H@fmantabackend.tpf6egh.mongodb.net/miEcommerce'
+let url = 'mongodb+srv://facumanta10:6VXFGaou1y8F4X8H@fmantabackend.tpf6egh.mongodb.net/'
 
 
 module.exports = {

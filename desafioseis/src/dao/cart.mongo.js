@@ -1,4 +1,4 @@
-const { cartModel } = require("./model/cart.model");
+const { cartModel } = require("../models/cart.model");
 
 class CartManagerMongo {
 	constructor() {
@@ -62,4 +62,4 @@ class CartManagerMongo {
 	}
 }
 
-module.exports = new CartManagerMongo;
+module.exports = CartManagerMongo;

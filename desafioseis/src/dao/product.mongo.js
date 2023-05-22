@@ -1,9 +1,6 @@
 const { productModel } = require("./model/product.model")
 
 class ProductManagerMongo {
-    constructor() {
-		this.productModel = productModel;
-	}
     
     async getProducts(){
         try{
@@ -32,4 +29,4 @@ class ProductManagerMongo {
     async deleteProduct(pid){}
 }
 
-module.exports = new ProductManagerMongo;
+module.exports = new ProductManagerMongo

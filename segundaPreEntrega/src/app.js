@@ -1,7 +1,10 @@
-const express = require('express')
-const { connectDb } = require('./config/configServer.js');
-const routerServer = require('./routes')
-const logger = require('morgan')
+const express = require('express');
+const { connectDb } = require('./config/configServer');
+const routerServer = require('./routes');
+const logger = require('morgan');
+// const cookieParser = require("cookie-parser");
+// const session = require ('express-session');
+
 
 //require("./db.js");
 
@@ -18,13 +21,19 @@ connectDb()
   });
 //connectDb()
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-app.use('/static',express.static(__dirname+'/public'))
-app.use(logger('dev'))
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use('/static',express.static(__dirname+'/public'));
+app.use(logger('dev'));
+// app.use(cookieParser());
+// app.use (session({
+//   secret:'secretCoder',
+//   resave: true,
+//   saveUninitialized: true
+// }))
 
 
-app.use(routerServer)
+app.use(routerServer);
 
 app.listen(PORT, (err)=> {
     if (err) console.log('Erro en el servidor', err)
