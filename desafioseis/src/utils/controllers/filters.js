@@ -1,6 +1,6 @@
 const productModel = require("../../dao/model/product.model");
 const connection = require("../../db");
-require("dotenv").config();
+// require("dotenv").config();
 
 async function filtro(
   category,

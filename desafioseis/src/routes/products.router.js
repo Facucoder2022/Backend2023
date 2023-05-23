@@ -1,6 +1,6 @@
 const { Router } = require("express");
 // const productModel = require("../ProductManager");
-const productManager = require("../dao/model/product.model");
+const productManager = require("../dao/product.mongo");
 
 const router = Router();
 
@@ -13,7 +13,7 @@ router.get('/', async (req,res)=>{
         })
         
     } catch (error) {
-        cconsole.log(error)
+        console.log(error)
     }
 })
 router.get('/:pid', async (req,res)=>{
@@ -49,6 +49,17 @@ router.put('/:pid', (req,res)=>{
 router.delete('/:pid', (req,res)=>{
     res.status(200).send('Borrar productos')
 })
+
+router.get('/products', async (req,res)=>{
+    let page = parseInt(req.query.page);
+    if(!page) page=1;
+    let result = await productModel.paginate({},{page,limit:5,})
+
+            result.prevLink = result.hasPrevPage?`http://localhost:8080/products?page=${result.prevPage}`:'';
+            result.nextLink = result.hasNextPage?`http://localhost:8080/products?page=${result.nextPage}`:'';
+            result.isValid= !(page<=0||page>result.totalPages)
+            res.render('products',result)
+        })
 
 module.exports = router
 

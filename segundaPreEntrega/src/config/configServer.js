@@ -13,13 +13,16 @@ module.exports = {
 
 
             //await productModel.create({})
-            let products =  await productModel.find();
+            let products =  await productModel.paginate({gender: "Female"}, {limit:20, page:1})
+            
             console.log(products)
 
             
             const cart = await cartModel.findOne({_id: '6452fbefc7ddcec328f8f962'})            
             
             //console.log(cart.products[2])
+
+        
             
         } catch (err) {
             console.log(err)

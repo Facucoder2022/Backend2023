@@ -105,5 +105,49 @@
     "thumbnails":"no hay foto nunca, como se agrega??",
     "status":"true",
     "id":14
+    },
+    {
+    "title":"producto 16",
+    "description":"16",
+    "code":"sda21",
+    "price":4345,
+    "stock":"344",
+    "category":"testeo",
+    "thumbnails":"no hay foto nunca",
+    "status":"true",
+    "id":16
+    },
+    {
+    "title":"producto 17",
+    "description":"17",
+    "code":"sdaa21",
+    "price":434,
+    "stock":"344",
+    "category":"testeo",
+    "thumbnails":"no hay foto nunca",
+    "status":"true",
+    "id":17
+    },
+    {
+    "title":"producto 19",
+    "description":"19",
+    "code":"sa221",
+    "price":440,
+    "stock":"44",
+    "category":"testeo",
+    "thumbnails":"no hay foto nunca",
+    "status":"true",
+    "id":19
+    },
+    {
+    "title":"producto 20",
+    "description":"20",
+    "code":"sdaa2210",
+    "price":447,
+    "stock":"447",
+    "category":"testeo",
+    "thumbnails":"no hay foto nunca",
+    "status":"true",
+    "id":20
     }
 ]

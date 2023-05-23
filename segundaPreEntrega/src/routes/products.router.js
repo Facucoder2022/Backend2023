@@ -50,6 +50,17 @@ router.delete('/:pid', (req,res)=>{
     res.status(200).send('Borrar productos')
 })
 
+router.get('/products', async (req,res)=>{
+    let page = parseInt(req.query.page);
+    if(!page) page=1;
+    let result = await productModel.paginate({},{page,limit:5,})
+
+            result.prevLink = result.hasPrevPage?`http://localhost:8080/products?page=${result.prevPage}`:'';
+            result.nextLink = result.hasNextPage?`http://localhost:8080/products?page=${result.nextPage}`:'';
+            result.isValid= !(page<=0||page>result.totalPages)
+            res.render('products',result)
+        })
+
 module.exports = router
 
 
