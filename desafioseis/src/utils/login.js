@@ -1,7 +1,7 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../../dao/model/users");
-require("dotenv").config();
+// require("dotenv").config();
 
 async function login(email, password) {
   console.log(email, password);

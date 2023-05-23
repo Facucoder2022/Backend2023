@@ -2,7 +2,7 @@ const express = require('express')
 const { connectDb } = require('./config/configServer');
 const routerServer = require('./routes')
 const logger = require('morgan')
-const sessionRouter = require('./session.router')
+const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const FileStore  = require('session-file-store')
 const handlebars = require('express-handlebars')
@@ -37,23 +37,36 @@ app.set('views', __dirname+'/views')
 app.set('view engine', 'handlebars')
 
 app.use(session({
-  store: create({
-      mongoUrl: 'mongodb://localhost:27017/comision39750',
-      mongoOptions: {
-          useNewUrlParser: true,
-          useUnifiedTopology: true
-      },
-      ttl: 1000000*6000
-  }),
-  secret: 'secretCoder',
-  resave: false,
-  saveUninitialized: false
-})) 
+      secret: 'secretCoder',
+      resave: true,
+      saveUninitialized: true
+ })) 
+
+//mongo
+// app.use(session({
+//   store: create({
+//       mongoUrl: 'mongodb+srv://facumanta10:6VXFGaou1y8F4X8H@fmantabackend.tpf6egh.mongodb.net/miEcommerce',
+//       mongoOptions: {
+//           useNewUrlParser: true,
+//           useUnifiedTopology: true
+//       },
+//       ttl: 1000000*6000
+//   }),
+//   secret: 'secretCoder',
+//   resave: false,
+//   saveUninitialized: false
+// })) 
 
 
 app.use(routerServer)
 
-app.listen(PORT, (err)=> {
-    if (err) console.log('Erro en el servidor', err)
-    console.log(`Escuchando en el puerto: ${PORT}`)
+// app.listen(PORT, (err)=> {
+//     if (err) console.log('Erro en el servidor', err)
+//     console.log(`Escuchando en el puerto: ${PORT}`)
+// })
+
+app.use((err, req, res, next)=>{
+  console.log(err)
+  res.status(500).send('Todo mal')
 })
+

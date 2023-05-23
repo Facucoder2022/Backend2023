@@ -7,9 +7,7 @@ const router = Router()
 
 router.post('/login', async (req, res)=> {
     const {email, password} = req.body
-    // validar email y password
 
-    // vamos a tener una función para validar el password
     const userDB = await userModel.findOne({email, password})
 
     if (!userDB) return res.send({status: 'error', message: 'No existe ese usuario, revisar'})
@@ -32,9 +30,7 @@ router.post('/login', async (req, res)=> {
 router.post('/register', async (req, res) => {
     try {
         const {username,first_name, last_name, email, password} = req.body 
-        //validar si vienen distintos de vacios && caracteres especiales
-    
-        // validar si existe mail+
+
         const existUser = await userModel.findOne({email})
     
         if (existUser) return res.send({status: 'error', message: 'el email ya está registrado' })
@@ -44,7 +40,7 @@ router.post('/register', async (req, res) => {
             first_name,
             last_name, 
             email, 
-            password  /// encriptar
+            password 
         }
         let resultUser = await userModel.create(newUser)
     
@@ -86,7 +82,7 @@ router.get('/counter', (req, res)=> {
 
 router.get('/privada', auth,(req,res) => {
 
-    res.send('Todo lo que esta acá solo lo puede ver un admin loagueado')
+    res.send('Todo lo que esta acá solo lo puede ver un admin logueado')
 })
 
 module.exports = router
