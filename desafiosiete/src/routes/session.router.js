@@ -1,61 +1,121 @@
 const {Router} = require('express')
 const { auth } = require('../utils/middlewares/authentication.middleware')
-const { userModel } = require("../dao/model/users.model")
+const { userModel } = require('../dao/model/users.model')
+const { createHash, isValidPassword } = require('../utils/bcryptHash')
+const passport = require('passport')
 
 const router = Router()
 
 
-router.post('/login', async (req, res)=> {
-    const {email, password} = req.body
+// router.post('/login', async (req, res)=> {
+//     const {email, password} = req.body
+//     // validar email y password
 
-    const userDB = await userModel.findOne({email, password})
+//     // vamos a tener una función para validar el password
+//     const userDB = await userModel.findOne({email})
+//     // 
+//     // console.log(userDB)
 
-    if (!userDB) return res.send({status: 'error', message: 'No existe ese usuario, revisar'})
+//     if (!userDB) return res.send({status: 'error', message: 'No existe ese usuario, revisar'})
 
-    req.session.user = {
-        first_name: userDB.first_name,
-        last_name: userDB.last_name,
-        email: userDB.email,
-        role: 'admin'
-    }
     
-    res.send({
-        status: 'success',
-        message: 'login success',
-        session: req.session.user
-    })
+//     // validar password
+//     if (!isValidPassword(password, userDB)) return res.status(401).send({
+//         status: 'error',
+//         message: 'El usuario o la contraseña no es la correcta'
+//     })
+
+
+//     req.session.user = {
+//         first_name: userDB.first_name,
+//         last_name: userDB.last_name,
+//         email: userDB.email,
+//         role: 'admin'
+//     }
+    
+//     res.send({
+//         status: 'success',
+//         message: 'login success',
+//         session: req.session.user
+//     })
+// })
+
+
+// router.post('/register', async (req, res) => {
+//     try {
+//         const {username,first_name, last_name, email, password} = req.body 
+//         //validar si vienen distintos de vacios && caracteres especiales
+    
+//         // validar si existe mail+
+//         const existUser = await userModel.findOne({email})
+    
+//         if (existUser) return res.send({status: 'error', message: 'el email ya está registrado' })
+    
+//         // otra forma
+//         // const newUser = new userModel({
+//         //     username,
+//         //     first_name,
+//         //     last_name, 
+//         //     email, 
+//         //     password 
+//         // })
+//         // await newUser.save()
+    
+//         const newUser = {
+//             username,
+//             first_name,
+//             last_name, 
+//             email, 
+//             password: createHash(password) /// encriptar
+//         }
+//         let resultUser = await userModel.create(newUser)
+    
+    
+    
+    
+//         res.status(200).send({
+//             status: 'success',
+//             message: 'Usuario creado correctamente',
+//             resultUser
+//         })
+//     } catch (error) {
+//         console.log(error)
+//     }
+   
+// })
+
+// login
+router.post('/login', passport.authenticate('login', {failureRedirect: '/faillogin'}), async (req,res) => { 
+    if (!req.user) return res.status(401).send({status: 'error', message: 'invalid credencial'})
+    req.session.user= {
+        first_name: req.user.first_name,
+        last_name: req.user.last_name,
+        email: req.user.email
+    }
+    res.send({status: 'success', message: 'User registered'})
+})
+
+router.get('/faillogin', async (req,res)=>{
+    console.log('Falló la estrategia')
+    res.send({status: 'error', error: 'falló autenticación'})
+})
+
+// succesRedirect
+router.post('/register', passport.authenticate('register', {failureRedirect: '/failregister'}), async (req,res) => {    
+    res.send({status: 'success', message: 'User registered'})
+})
+
+router.get('/failregister', async (req,res)=>{
+    console.log('Falló la estrategia')
+    res.send({status: 'error', error: 'falló autenticación'})
 })
 
 
-router.post('/register', async (req, res) => {
-    try {
-        const {username,first_name, last_name, email, password} = req.body 
-
-        const existUser = await userModel.findOne({email})
-    
-        if (existUser) return res.send({status: 'error', message: 'el email ya está registrado' })
-    
-        const newUser = {
-            username,
-            first_name,
-            last_name, 
-            email, 
-            password 
-        }
-        let resultUser = await userModel.create(newUser)
-    
-    
-    
-    
-        res.status(200).send({
-            status: 'success',
-            message: 'Usuario creado correctamente',
-            resultUser
-        })
-    } catch (error) {
-        console.log(error)
-    }
-   
+//github
+router.get('/github', passport.authenticate('github', {scope: ['user:email']}))
+router.get('/githubcallback', passport.authenticate('github', {failureRedirect: '/views/login'}), async (req,res)=>{
+    req.session.user = req.user
+    res.redirect ('/api/products')
 })
 
 router.get('/logout', (req, res)=>{
@@ -66,6 +126,26 @@ router.get('/logout', (req, res)=>{
         res.send('logout ok')
     })
 })
+
+
+router.post('/restaurarpass', async (req, res) => {
+    const { email, password } = req.body;
+  
+    // Encontrar el usuario por correo electrónico
+    const userDB = await userModel.findOne({ email });
+  
+    if (!userDB) {
+      // Si el usuario no existe, redireccionar a una página de error
+      return res.status(401).send({status: 'error', message: 'El usuario no existe'})
+    }    
+  
+    //Hasear Actualizar la contraseña del usuario
+    userDB.password = createHash(password)
+    await userDB.save()
+  
+    // Redireccionar al usuario a la página de login
+    res.status(200).json({status: 'success', message:'Contraseña actualizada correctamente'});
+  })
 
 
 
@@ -82,7 +162,7 @@ router.get('/counter', (req, res)=> {
 
 router.get('/privada', auth,(req,res) => {
 
-    res.send('Todo lo que esta acá solo lo puede ver un admin logueado')
+    res.send('Todo lo que esta acá solo lo puede ver un admin loagueado')
 })
 
 module.exports = router
