@@ -44,20 +44,21 @@ router.post("/", async (req, res) => {
     }
 });
 
-// router.delete('/cart/:productId', (req, res) => {
-// 	const productId = parseInt(req.params.productId);
-  
-// 	// Find the index of the product in the shopping cart
-// 	const productIndex = shoppingCart.findIndex(product => product.id === productId);
-  
-// 	if (productIndex !== -1) {
-// 	  // Remove the product from the shopping cart
-// 	  shoppingCart.splice(productIndex, 1);
-// 	  res.status(200).json({ message: 'Product removed from cart successfully' });
-// 	} else {
-// 	  res.status(404).json({ message: 'Product not found in cart' });
-// 	}
-//   });
+router.delete('/:cid/products/:pid', (req, res) => {
+	const productId = req.params.productId;
+
+  // Buscar el índice del producto en el carrito
+  const productIndex = cart.findIndex(item => item.productId === productId);
+
+  if (productIndex !== -1) {
+    // Eliminar el producto del carrito
+    cart.splice(productIndex, 1);
+    res.sendStatus(200); // Enviar una respuesta de éxito
+  } else {
+    res.sendStatus(404); // Enviar una respuesta de error si el producto no se encontró en el carrito
+  }
+});
+	
 
 router.post("/:cId/product/:pId", async (req, res) => {
 	try {

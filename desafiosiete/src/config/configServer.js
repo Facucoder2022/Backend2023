@@ -42,12 +42,12 @@ module.exports = {
         connect(url)
         console.log('Base de datos conectada')
 
-        let products =  await productModel.create
+        // let products =  await productModel.create
             
-             console.log(products)
+        //      console.log(products)
 
             
-             const cart = await cartModel.findOne({_id: '6452fbefc7ddcec328f8f962'})            
+        //      const cart = await cartModel.findOne({_id: '6452fbefc7ddcec328f8f962'})            
             
             //  console.log(cart.products[2])
              
