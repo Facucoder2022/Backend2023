@@ -1,11 +1,13 @@
 // productos
 
 ### GET 
-GET http://localhost:8080/api/productos
+GET http://localhost:8080/api/products
 ### GET 
-GET http://localhost:8080/api/productos/6449c1edc1db3bc583eb1fb2
+GET http://localhost:8080/api/products/paginate
+### GET 
+GET http://localhost:8080/api/products/6449c1edc1db3bc583eb1fb2
 ### POST 
-POST http://localhost:8080/api/productos/
+POST http://localhost:8080/api/products/
 Content-Type: application/json
 
 {
@@ -18,6 +20,31 @@ Content-Type: application/json
 }
 
 ### PUT 
-PUT http://localhost:8080/api/productos/id
+PUT http://localhost:8080/api/products/id
 ###
-DELETE http://localhost:8080/api/productos/id
+DELETE http://localhost:8080/api/products/id
+
+//cart
+
+### GET 
+GET http://localhost:8080/api/carts
+### GET 
+GET http://localhost:8080/api/carts/6449c1edc1db3bc583eb1fb2
+### POST 
+POST http://localhost:8080/api/carts/
+
+//login
+###
+POST http://localhost:8080/api/sessions/login
+
+###
+POST http://localhost:8080/api/sessions/register
+
+
+###
+GET http://localhost:8080/api/sessions/current
+
+###
+GET http://localhost:8080/api/sessions/counter
+###
+GET http://localhost:8080/api/sessions/privada
