@@ -43,6 +43,9 @@ const router = Router()
 
 router.use('/sessions', sessionsRouter)
 
+router.use('/sessions/allUsers', sessionsRouter)
+
+
 router.use('/api/products', productRouter)
 
 router.use("/api/carts", cartRouter);

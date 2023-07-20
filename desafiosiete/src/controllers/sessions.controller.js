@@ -5,6 +5,8 @@ class SessionController {
 
     login = (req, res)=>{
         const {email, password} = req.body
+        console.log('email', req);
+        console.log('password', password);
         // generateToken
         const user = {
             first_name: 'Facu',

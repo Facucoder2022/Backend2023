@@ -44,6 +44,9 @@ POST http://localhost:8080/sessions/register
 ###
 GET http://localhost:8080/sessions/current
 
+###
+GET http://localhost:8080/sessions/allUsers
+
 
 <!-- // productos
 

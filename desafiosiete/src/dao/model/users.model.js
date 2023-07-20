@@ -1,5 +1,5 @@
 /// esquema 
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const collection = 'usuarios'
 
@@ -16,7 +16,14 @@ const userSchema = new Schema({// nomnre
         required: true,
         unique: true
     },
-    gender: String
+    password: {
+        type: String,
+        require: true
+    },
+    gender: {
+        type: String,
+        optional: true
+    }
 })
 
 const userModel = model(collection, userSchema)

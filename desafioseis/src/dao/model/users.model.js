@@ -3,7 +3,7 @@ const {Schema, model} = require('mongoose')
 
 const collection = 'usuarios'
 
-const userSchema = new Schema({// nomnre 
+const userSchema = new Schema({// 
     first_name: {
         type: String,
         index: true
@@ -16,7 +16,10 @@ const userSchema = new Schema({// nomnre
         required: true,
         unique: true
     },
-    gender: String
+    gender: { 
+        type : String ,
+        optional : true
+    }
 })
 
 const userModel = model(collection, userSchema)

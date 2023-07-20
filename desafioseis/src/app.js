@@ -6,7 +6,7 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const FileStore  = require('session-file-store')
 const handlebars = require('express-handlebars')
-const { connect } = require('mongoose')
+// const { connect } = require('mongoose')
 const {create} = require('connect-mongo')
 
 const { Server } = require('socket.io')
@@ -24,13 +24,6 @@ const httpServer = app.listen(PORT,()=>{
 const io = new Server(httpServer)
 
  connectDb()
-   .then(() => {
-     console.log('Conexión exitosa a la base de datos');
-     // Puedes realizar otras operaciones después de que la conexión se haya establecido correctamente
-   })
-   .catch((error) => {
-     console.error('Error al conectar a la base de datos:', error);
-   });
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))

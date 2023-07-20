@@ -48,3 +48,6 @@ GET http://localhost:8080/api/sessions/current
 GET http://localhost:8080/api/sessions/counter
 ###
 GET http://localhost:8080/api/sessions/privada
+
+###
+GET http://localhost:8080/api/usuarios/
