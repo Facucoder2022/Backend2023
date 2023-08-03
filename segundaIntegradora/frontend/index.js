@@ -1,6 +1,6 @@
 console.log('index.js')
 
-fetch('http://localhost:8080/api/productos', {
+fetch('http://localhost:8080/api/products', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'
@@ -13,7 +13,7 @@ fetch('http://localhost:8080/api/productos', {
     .then(respuesta =>{ 
         console.log(respuesta.payload)
         let html = ``
-        const porductList = document.querySelector('#porductList')
+        const productList = document.querySelector('#productList')
         respuesta.payload.map(product => {
             return html+= `
             <div class="card w-25">
@@ -28,7 +28,7 @@ fetch('http://localhost:8080/api/productos', {
                 </div>
             </div>`
         })
-        porductList.innerHTML = html
+        productList.innerHTML = html
 
     })
     .catch(error => console.log(error))

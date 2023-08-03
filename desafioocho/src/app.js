@@ -1,4 +1,5 @@
 const express = require('express')
+const handlebars = require('express-handlebars');
 const session = require('express-session')
 const { create } = require('connect-mongo');
 const {connectDb} = require('./config/configServer')
@@ -13,6 +14,11 @@ const app = express()
 const PORT = 8080
 
 connectDb()
+
+app.engine('handlebars', handlebars.engine())
+app.set('views', __dirname+'/views')
+app.set('view engine', 'handlebars')
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))

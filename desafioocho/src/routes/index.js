@@ -33,6 +33,7 @@ const productRouter = require('./products.router')
 const cartRouter = require("./cart.router");
 const userRouter = require('./user.router')
 const sessionsRouter = require('./session.router')
+const viewsRouter = require('./views.router')
 
 const router = Router()
 
@@ -41,16 +42,18 @@ const router = Router()
 //     res.send('Hola mundo')
 // })
 
-router.use('/sessions', sessionsRouter)
+router.use('/views', viewsRouter)
 
-router.use('/sessions/allUsers', sessionsRouter)
+router.use('/api/sessions', sessionsRouter)
+
+router.use('/api/sessions/allUsers', sessionsRouter)
 
 
 router.use('/api/products', productRouter)
 
 router.use("/api/carts", cartRouter);
 
-router.use('/api/usuarios', userRouter)
+router.use('/api/users', userRouter)
 
 router.post('/upload',  uploader.single('myFile'),(req, res)=>{
     res.send({

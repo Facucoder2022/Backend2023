@@ -8,6 +8,8 @@ const router = Router()
 
 
 // login
+
+
 router.post('/login', passport.authenticate('login', {failureRedirect: '/faillogin'}), async (req,res) => { 
     if (!req.user) return res.status(401).send({status: 'error', message: 'invalid credencial'})
     req.session.user= {
@@ -22,6 +24,7 @@ router.get('/faillogin', async (req,res)=>{
     console.log('Falló la estrategia')
     res.send({status: 'error', error: 'falló autenticación'})
 })
+
 
 // succesRedirect
 router.post('/register', passport.authenticate('register', {failureRedirect: '/failregister'}), async (req,res) => {    

@@ -14,9 +14,9 @@ const router = Router()
 //     res.send('Hola mundo')
 // })
 
-router.use('/sessions', sessionsRouter)
+router.use('/api/sessions', sessionsRouter)
 
-router.use('/sessions/allUsers', sessionsRouter)
+router.use('/api/sessions/allUsers', sessionsRouter)
 
 
 router.use('/api/products', productRouter)

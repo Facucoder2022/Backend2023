@@ -1,9 +1,11 @@
 /// esquema 
 const { Schema, model } = require('mongoose')
+// const Cart = require('./cart.model');
+
 
 const collection = 'usuarios'
 
-const userSchema = new Schema({// nomnre 
+const userSchema = new Schema({
     first_name: {
         type: String,
         index: true
@@ -13,16 +15,20 @@ const userSchema = new Schema({// nomnre
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required:[true, "Email is required"],
+        unique: true,
+    },
+    age: {
+        type: Number
     },
     password: {
         type: String,
         require: true
     },
-    gender: {
+    role: {
         type: String,
-        optional: true
+        enum: ['user','admin'],
+        default:'user'
     }
 })
 
