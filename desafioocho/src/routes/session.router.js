@@ -10,7 +10,8 @@ const router = Router()
 // login
 
 
-router.post('/login', passport.authenticate('login', {failureRedirect: '/faillogin'}), async (req,res) => { 
+router.post('/login', passport.authenticate('login', {failureRedirect: '/faillogin'}), async (req,res) => {
+    console.log('Falló la estrategia') 
     if (!req.user) return res.status(401).send({status: 'error', message: 'invalid credencial'})
     req.session.user= {
         first_name: req.user.first_name,
