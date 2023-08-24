@@ -48,7 +48,6 @@ router.use('/api/sessions', sessionsRouter)
 
 router.use('/api/sessions/allUsers', sessionsRouter)
 
-
 router.use('/api/products', productRouter)
 
 router.use("/api/carts", cartRouter);

@@ -1,13 +1,16 @@
 <div class="main-products-container">
-	{{#each products}}
+	<h5>Tamo en products</h5>
+	{{#products }}
+	
 		<div class="product-container">
-			<p>{{this.title}}</p>
-			<p>{{this.description}}</p>
-			<p>Precio: {{this.price}}</p>
-			<p>{{this.thumbnail}}</p>
-			<p>Codigo: {{this.code}}</p>
-			<p>Stock: {{this.stock}}</p>
-			<p>{{this.id}}</p>
+			{{@index}}
+			<p>Titulo : {{this.title}}</p>
+			<p>{{description}}</p>
+			<p>Precio: {{price}}</p>
+			<p>{{thumbnail}}</p>
+			<p>Codigo: {{code}}</p>
+			<p>Stock: {{stock}}</p>
+			<p>{{id}}</p>
 		</div>
-	{{/each}}
+	{{/products}}
 </div>

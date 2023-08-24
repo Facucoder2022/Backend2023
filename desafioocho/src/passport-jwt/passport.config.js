@@ -43,20 +43,28 @@ const initPassport = () => {
     })
 
 
-    passport.use('login', new LocalStrategy({
-        usernameField: 'email'
-    }, async (username, password, done)=>{
-        const userDB = await userModel.findOne({email: username})
-        try {
-            if(!userDB) return done(null, false)
-    
-            if(!isValidPassword(password, userDB)) return done(null, false)
-            return done(null, userDB)
+    // passport.use('login', new LocalStrategy({
+    //     usernameField: 'email'
+    // }, async (username, password, done)=>{
+
+    //     console.log("********   *             *********************************************")
+    //     username = 'manta3@gmail.com'
+    //     const userDB = await userModel.findOne({email: username})
+   
+    //     try {
+    //         if(!userDB) return done(null, false)
             
-        } catch (error) {
-            return done(error)
-        }
-    }))
+    //         // if(!isValidPassword(password2, userDB)) {
+    //         //     console.log('es invalido');
+    //         //     return done(null, false)
+    //         // }
+    //         return done(null, userDB)
+            
+    //     } catch (error) {
+    //         console.log('catch')
+    //         return done(error)
+    //     }
+    // }))
 }
 
 const initPassportGithub = () => {

@@ -3,23 +3,24 @@ const { auth } = require('../utils/middlewares/authentication.middleware')
 const { userModel } = require('../dao/model/users.model')
 const { createHash, isValidPassword } = require('../utils/bcryptHash')
 const passport = require('passport')
-
+const {login, register} = require('../controllers/sessions.controller')
 const router = Router()
 
 
 // login
+router.post('/login', login)
+router.post('/register', register)
 
-
-router.post('/login', passport.authenticate('login', {failureRedirect: '/faillogin'}), async (req,res) => {
-    console.log('Falló la estrategia') 
-    if (!req.user) return res.status(401).send({status: 'error', message: 'invalid credencial'})
-    req.session.user= {
-        first_name: req.user.first_name,
-        last_name: req.user.last_name,
-        email: req.user.email
-    }
-    res.send({status: 'success', message: 'User registered'})
-})
+// router.post('/login', passport.authenticate('login', {failureRedirect: '/faillogin'}), async (req,res) => {
+//     console.log('Falló la estrategia') 
+//     if (!req.user) return res.status(401).send({status: 'error', message: 'invalid credencial'})
+//     req.session.user= {
+//         first_name: req.user.first_name,
+//         last_name: req.user.last_name,
+//         email: req.user.email
+//     }
+//     res.send({status: 'success', message: 'User logedIn'})
+// })
 
 router.get('/faillogin', async (req,res)=>{
     console.log('Falló la estrategia')

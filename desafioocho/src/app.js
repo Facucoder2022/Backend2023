@@ -8,7 +8,10 @@ const logger = require('morgan')
 
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
-const { initPassport } = require('./passport-jwt/passport.config')
+const { initPassport } = require('./passport-jwt/passport.config');
+const { getProducts } = require('./dao/product.mongo');
+const { productModel } = './dao/model/product.model';
+
 
 const app = express()
 const PORT = 8080
@@ -40,6 +43,35 @@ app.use(session({
     saveUninitialized: false
 })) 
 
+app.get('/', (req, res) =>{
+    let testUser = {
+        name: "Facu",
+        last_name : "Manta0"
+    }
+    res.render('index', testUser);
+})
+
+app.get('/home', async (req, res) =>{
+    let products = await getProducts();
+    console.log('products', products);
+    res.render('home', { products });
+})
+
+app.get('/login', (req, res) =>{
+    let testUser = {
+        name: "Facu",
+        last_name : "Manta0"
+    }
+    res.render('login', testUser);
+})
+
+app.get('/register', (req, res) =>{
+    let testUser = {
+        name: "Facu",
+        last_name : "Manta0"
+    }
+    res.render('registerForm', testUser);
+})
 
 
 initPassport()

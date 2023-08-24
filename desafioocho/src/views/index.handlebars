@@ -1,7 +1,19 @@
 <div>
-	<h1>Hola {{user.name}} {{user.last_name}}, que gusto verte! asdasdasd</h1>
+	<h1>Hola, que gusto verte! Inicia sesion o registrate para entrar</h1>
 
-	{{#if isAdmin}}
+	<div style="width: 100%; text-align:center; "> 
+		<div style="width: 50%; margin-top:10px">
+			<button style=" margin-top:10px"><a href="/login">Iniciar Sesion</a></button>
+		</div>
+		<div style="width: 50%">
+			<button style=" margin-top:10px"><a href="/register">Registrarse</a></button>
+
+		</div>
+
+
+	</div>
+
+	{{!-- {{#if isAdmin}}
 		<h3>es admin</h3>
 		{{#each food}}
 			<div>
@@ -11,6 +23,6 @@
 		{{/each}}
 	{{else}}
 		<h3>es user, no puede ver los productos</h3>
-	{{/if}}
+	{{/if}} --}}
 </div>
-<script src="../public/index.html"></script>
+{{!-- <script src="../public/index.html"></script> --}}
