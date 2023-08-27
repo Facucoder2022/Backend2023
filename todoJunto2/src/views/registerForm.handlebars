@@ -1,0 +1,19 @@
+    <h1>Registro</h1>
+    <form action="/api/sessions/register" method="POST">
+   <input type="text" name="username" placeholder="ingrese usuario" > 
+   <input type="text" name="first_name" placeholder="ingrese nombre" > 
+   <input type="text" name="last_name" placeholder="ingrese apellido" > 
+   <input type="text" name="email" placeholder="ingrese email" > 
+   <input type="text" name="password" placeholder="ingrese password" > 
+   <button>Enviar</button>
+</form>
+
+    <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+      <script>
+        console.log('prueba')
+    const response = {{responseJson}}; // Asigna aquí tu respuesta JSON
+    if (response.status === 'success' && response.redirectTo) {
+        window.location.href = response.redirectTo;
+    }
+</script>
+
