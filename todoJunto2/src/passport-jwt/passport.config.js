@@ -3,7 +3,6 @@ const local = require('passport-local')
 const GithubStrategy = require ('passport-github2')
 const { userModel } = require('../dao/model/users.model')
 const { createHash, isValidPassword } = require('../utils/bcryptHash')
-
 require ('dotenv').config()
 
 const LocalStrategy = local.Strategy
@@ -43,42 +42,29 @@ const initPassport = () => {
         done(null, user)
     })
 
-    // passport.use(new JwtStrategy(opts, async (jwt_payload, done) => {
-    //     try {
-    //       const userDB = await userDB.getUserById(jwt_payload.sub); // Aquí asumimos que el ID del usuario está en 'sub' del payload JWT
-    //       if (userDB) {
-    //         return done(null, user);
-    //       } else {
-    //         return done(null, false);
-    //       }
-    //     } catch (error) {
-    //       return done(error, false);
-    //     }
-    //   }));
 
+    // passport.use('login', new LocalStrategy({
+    //     usernameField: 'email'
+    // }, async (username, password, done)=>{
 
-     passport.use('login', new LocalStrategy({
-         usernameField: 'email'
-     }, async (username, password, done)=>{
-
-        console.log("********   **")
-         username = 'manta3@gmail.com'
-         const userDB = await userModel.findOne({email: username})
+    //     console.log("********   *             *********************************************")
+    //     username = 'manta3@gmail.com'
+    //     const userDB = await userModel.findOne({email: username})
    
-         try {
-             if(!userDB) return done(null, false)
+    //     try {
+    //         if(!userDB) return done(null, false)
             
-              if(!isValidPassword(password2, userDB)) {
-                  console.log('es invalido');
-                  return done(null, false)
-              }
-             return done(null, userDB)
+    //         // if(!isValidPassword(password2, userDB)) {
+    //         //     console.log('es invalido');
+    //         //     return done(null, false)
+    //         // }
+    //         return done(null, userDB)
             
-         } catch (error) {
-             console.log('catch')
-             return done(error)
-         }
-     }))
+    //     } catch (error) {
+    //         console.log('catch')
+    //         return done(error)
+    //     }
+    // }))
 }
 
 const initPassportGithub = () => {

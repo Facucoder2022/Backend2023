@@ -1,0 +1,104 @@
+paths: 
+  /api/products/:
+    get:
+      summary: Obtiene todos los productos
+      tags: 
+        - Products
+      responses:
+        "200":
+          description: Los productos fueron obtenidos correctamente
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#components/schemas/Product'
+        "500":
+          description: Error interno del servidor, usualmente generado por una consulta defectuosa
+    post:
+      summary: Crea un nuevo producto
+      tags: 
+        - Products
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+              $ref: '#components/requestBodies/createProduct'
+      responses:
+        "201":
+          description: El producto fue creado correctamente
+  /api/products/{productId}:
+    get:
+      summary: Obtiene un producto por su ID
+      tags: 
+        - Products
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        description: El ID del producto a solicitar.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: El producto fue obtenido correctamente
+          content:
+            application/json:
+              schema: 
+                $ref: '#components/schemas/Product'
+components:
+  schemas: 
+    Product: 
+      type: object
+      properties: 
+        _id:
+          type: string
+          description: ID autogenerado por MongoDB.
+        name:
+          type: string
+          description: Nombre del producto.
+        price:
+          type: number
+          description: Precio del producto.
+        description:
+          type: string
+          description: Descripción del producto.
+        code:
+          type: string
+          description: Código del producto.
+        stock:
+          type: number
+          description: Cantidad en stock del producto.
+      example:
+        _id: ObjectId('fasldkf56asdf.asdfa6a54s')
+        name: Producto de ejemplo
+        price: 50.99
+        description: Este es un producto de ejemplo.
+        code: PROD123
+        stock: 100
+  requestBodies: 
+    createProduct:
+      type: object
+      properties: 
+        name:
+          type: string
+          description: Nombre del producto.
+        price:
+          type: number
+          description: Precio del producto.
+        description:
+          type: string
+          description: Descripción del producto.
+        code:
+          type: string
+          description: Código del producto.
+        stock:
+          type: number
+          description: Cantidad en stock del producto.
+      example:
+        name: Producto de ejemplo
+        price: 50.99
+        description: Este es un producto de ejemplo.
+        code: PROD123
+        stock: 100

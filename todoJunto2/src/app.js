@@ -15,6 +15,9 @@ const loggerProduction = require('./utils/logger.productions');
 
 const logger = process.env.NODE_ENV === 'production' ? loggerProduction : loggerDevelopment;
 
+const swaggerJsDoc = require('swagger-jsdoc')
+const swaggerUiExpress = require('swagger-ui-express')
+
 
 const app = express()
 const PORT = 8080
@@ -31,6 +34,21 @@ app.use(express.urlencoded({extended: true}))
 app.use('/static',express.static(__dirname+'/public'))
 
 app.use(cookieParser())
+
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.1',
+        info: {
+            title: 'Documentación de adoptame',
+            description: 'Esta es la documentación de adoptame'
+        }
+    },
+    apis: [`${__dirname}/docs/**/*.yaml`]
+}
+const specs = swaggerJsDoc(swaggerOptions)
+
+app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
+
 
 app.use(session({
     store: create({
