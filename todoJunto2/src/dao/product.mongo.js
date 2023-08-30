@@ -1,5 +1,6 @@
 const { productModel } = require("./model/product.model")
-const { paginate } = require('mongoose-paginate-v2');
+const { sendEmail } = require("../utils/sendMail")
+// const { paginate } = require('mongoose-paginate-v2');
 
 class ProductManagerMongo {
     constructor() {

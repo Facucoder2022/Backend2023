@@ -1,8 +1,8 @@
 const express = require('express')
 const handlebars = require('express-handlebars');
-const session = require('express-session')
-const { create } = require('connect-mongo');
-const {connectDb} = require('./config/configServer')
+// const session = require('express-session')
+// const { create } = require('connect-mongo');
+const {config} = require('./config/configServer')
 const appRouter = require('./routes')
 const logger = require('morgan')
 
@@ -14,9 +14,10 @@ const { productModel } = './dao/model/product.model';
 
 
 const app = express()
-const PORT = 8080
+console.log(config.PORT)
+const PORT = config.PORT
 
-connectDb()
+// connectDb()
 
 app.engine('handlebars', handlebars.engine())
 app.set('views', __dirname+'/views')
@@ -29,19 +30,19 @@ app.use('/static',express.static(__dirname+'/public'))
 app.use(logger('dev'))
 app.use(cookieParser())
 
-app.use(session({
-    store: create({
-        mongoUrl: 'mongodb+srv://facumanta10:6VXFGaou1y8F4X8H@fmantabackend.tpf6egh.mongodb.net/miEcommerce',
-        mongoOptions: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        },
-        ttl: 1000000*6000
-    }),
-    secret: 'secretCoder',
-    resave: false,
-    saveUninitialized: false
-})) 
+// app.use(session({
+//     store: create({
+//         mongoUrl: 'mongodb+srv://facumanta10:6VXFGaou1y8F4X8H@fmantabackend.tpf6egh.mongodb.net/miEcommerce',
+//         mongoOptions: {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true
+//         },
+//         ttl: 1000000*6000
+//     }),
+//     secret: 'secretCoder',
+//     resave: false,
+//     saveUninitialized: false
+// })) 
 
 app.get('/', (req, res) =>{
     let testUser = {
@@ -76,7 +77,7 @@ app.get('/register', (req, res) =>{
 
 initPassport()
 passport.use(passport.initialize())
-passport.use(passport.session())
+
 
 app.use(appRouter)
 

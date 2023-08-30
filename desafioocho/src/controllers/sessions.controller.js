@@ -6,9 +6,6 @@ class SessionController {
     login = (req, res)=>{
         
         const {email, password} = req.body
-       
-
-        
         // generateToken
         const user = {
             first_name: 'Facu',
@@ -22,11 +19,11 @@ class SessionController {
         res.cookie('coderCookieToken', token, {
             maxAge: 60*60*10000,
             httpOnly: true
-        })// .send({
-        //     status: 'success',
-        //     token,
+        }) .send({
+             status: 'success',
+             token,
         //     redirectTo: '/home' 
-        // })
+        })
        res.redirect('/home'); 
     }
 
@@ -34,7 +31,7 @@ class SessionController {
 
         const user = {
             first_name: 'Facu',
-            last_name: 'manta', 
+            last_name: 'Manta', 
             role: 'user',
             email: 'fm@gmail.com'
         }

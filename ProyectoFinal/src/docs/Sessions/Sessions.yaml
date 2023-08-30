@@ -1,0 +1,56 @@
+paths: 
+  /api/sessions/login/:
+  post:
+    summary: Inicia una nueva sesión.
+    tags: 
+      - Sessions
+    requestBody:
+      required: true
+      content: 
+        application/json:
+          schema: 
+            $ref: '#components/requestBodies/createSession'
+    responses:
+      "201":
+        description: La sesión fue creada correctamente
+
+components:
+  schemas: 
+    User: 
+      type: object
+      properties: 
+        _id:
+          type: string
+          description: Id autogenerado por Mongo.
+        first_name:
+          type: string
+          description: El primer nombre del usuario.
+        last_name:
+          type: string
+          description: El segundo nombre del usuario.
+        email:
+          type: string
+          description: El email del usuario.
+        password:
+          type: string
+          description: El contraseña del usuario.
+      example:
+        _id: ObjectId('fasldkf56asdf.asdfa6a54s')
+        first_name: Facundo
+        last_name: Manta
+        email: fmanta@gmail.com  
+        password: asdf1fasd$fasd.asdf$afsdf.6asdf63
+        
+  requestBodies: 
+    createSession:
+      type: object
+      properties:         
+        email:
+          type: string
+          description: El email del usuario.
+        password:
+          type: string
+          description: El contraseña del usuario.
+      example:
+        email: facu@gmail.com  
+        password: '123456'

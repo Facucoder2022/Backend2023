@@ -1,12 +1,12 @@
 const express = require('express')
 const handlebars = require('express-handlebars');
-const session = require('express-session')
-const { create } = require('connect-mongo');
-const {connectDb} = require('./config/configServer')
+// const session = require('express-session')
+// const { create } = require('connect-mongo');
+const {config} = require('./config/configServer')
 const appRouter = require('./routes')
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
-const { initPassport } = require('./passport-jwt/passport.config');
+const { initializePassport } = require('./passport-jwt/passport.config');
 const { getProducts } = require('./dao/product.mongo');
 const errorHandler = require("./utils/middlewares/errorHandler");
 
@@ -20,9 +20,10 @@ const swaggerUiExpress = require('swagger-ui-express')
 
 
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT||8080 
 
-connectDb()
+
+//connectDb()
 
 app.engine('handlebars', handlebars.engine())
 app.set('views', __dirname+'/views')
@@ -50,19 +51,19 @@ const specs = swaggerJsDoc(swaggerOptions)
 app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
 
 
-app.use(session({
-    store: create({
-        mongoUrl: 'mongodb+srv://facumanta10:6VXFGaou1y8F4X8H@fmantabackend.tpf6egh.mongodb.net/miEcommerce',
-        mongoOptions: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        },
-        ttl: 1000000*6000
-    }),
-    secret: 'secretCoder',
-    resave: false,
-    saveUninitialized: false
-})) 
+// app.use(session({
+//     store: create({
+//         mongoUrl: 'mongodb+srv://facumanta10:6VXFGaou1y8F4X8H@fmantabackend.tpf6egh.mongodb.net/miEcommerce',
+//         mongoOptions: {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true
+//         },
+//         ttl: 1000000*6000
+//     }),
+//     secret: 'secretCoder',
+//     resave: false,
+//     saveUninitialized: false
+// })) 
 
 app.use((req, res, next) => {
     req.logger = logger;
@@ -102,9 +103,9 @@ app.get('/register', (req, res) =>{
 })
 
 
-initPassport()
-passport.use(passport.initialize())
-passport.use(passport.session())
+initializePassport()
+app.use(passport.initialize())
+// passport.use(passport.session())
 
 app.use(appRouter)
 

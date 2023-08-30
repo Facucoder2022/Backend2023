@@ -18,16 +18,17 @@ class SessionController {
         }
 
         const token = generateToken(user)
+        console.log('Generated token:', token);
         
         res.cookie('coderCookieToken', token, {
             maxAge: 60*60*10000,
             httpOnly: true
-        })// .send({
-        //     status: 'success',
-        //     token,
+        }) .send({
+             status: 'success',
+             token,
         //     redirectTo: '/home' 
-        // })
-       res.redirect('/home'); 
+         })
+       //res.redirect('/home'); 
     }
 
     register = (req, res)=>{
@@ -40,6 +41,8 @@ class SessionController {
         }
 
         const token = generateToken(user)
+        console.log('Generated token:', token);
+
         res.send({
             status: 'success',
             token
