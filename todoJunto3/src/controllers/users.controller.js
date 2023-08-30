@@ -1,6 +1,31 @@
 const { usersService } = require("../services/index.js");
 const { createHash } = require("../utils/index.js");
 
+const adminEmail = process.env.ADMIN_EMAIL;
+const adminPassword = process.env.ADMIN_PASSWORD;
+
+const authenticate = async (email, password) => {
+    if (email === adminEmail && password === adminPassword) {
+      return true;
+    }
+    return false;
+  };
+  
+  const login = async (req, res) => {
+    const { email, password } = req.body;
+  
+    try {
+      if (await authenticate(email, password)) {
+        // Aquí puedes generar un token de autenticación si lo necesitas
+        res.send({ status: "success", message: "Logged in as superadmin" });
+      } else {
+        res.status(401).send({ status: "error", error: "Invalid credentials" });
+      }
+    } catch (error) {
+      res.status(500).send({ status: "error", error: "Server error" });
+    }
+  };
+
 const getAllUsers = async(req,res)=>{
     const users = await usersService.getAll();
     res.send({status:"success",payload:users})
@@ -46,5 +71,6 @@ module.exports = {
     getAllUsers,
     createUser,
     getUser,
-    updateUser
+    updateUser,
+    login,
 }
