@@ -3,11 +3,11 @@ const { cartModel } = require("./models/Carts");
 class Carts {
     
     get = (params) => {
-        return cartModel.find(params).populate('products.product');
+        return cartModel.find(params).populate('product');
     }
 
     getBy = (params) => {
-        return cartModel.findOne(params).populate('products.product');
+        return cartModel.findOne(params).populate('product');
     }
 
     save = (doc) => {
@@ -15,7 +15,7 @@ class Carts {
     }
 
     update = (id, doc) => {
-        return cartModel.findByIdAndUpdate(id, { $set: doc }, { new: true }).populate('products.product');
+        return cartModel.findByIdAndUpdate(id, { $set: doc }, { new: true }).populate('product');
     }
 
     delete = (id) => {

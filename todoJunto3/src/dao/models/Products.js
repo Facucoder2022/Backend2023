@@ -20,8 +20,6 @@ const schema = new mongoose.Schema(
     },
     })
 
-const productModel = mongoose.model(collection, schema);
+const productModel = mongoose.model(collection, schema)
 
-module.exports = {
-    productModel
-}
+module.exports = productModel

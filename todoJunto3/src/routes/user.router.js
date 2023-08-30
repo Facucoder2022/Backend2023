@@ -6,7 +6,7 @@ const router = Router()
 
 router.get('/', authentication,usersController.getAllUsers)
 router.get('/:uid',usersController.getUser)
-router.post('/', usersController.createUser)
+router.post('/', usersController.createUser) //es la unica qe no funciona
 router.put('/:uid',usersController.updateUser)
 router.delete('/:uid',usersController.deleteUser)
 

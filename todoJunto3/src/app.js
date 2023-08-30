@@ -25,8 +25,8 @@ const swaggerOptions = {
     definition: {
         openapi: '3.0.1',
         info: {
-            title: 'Documentación para la app de mascotas',
-            description: 'Esta es la documentación de adoptame'
+            title: 'Documentación para ecommerce de NBA Uruguay',
+            description: 'Esta es la documentación de mi ecommerce'
         }
     },
     apis: [`${__dirname}/docs/**/*.yaml`]
