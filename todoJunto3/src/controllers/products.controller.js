@@ -4,7 +4,8 @@ const { productsService } = require("../services/index")
 
 const getProducts = async(req,res)=>{
     const products = await productsService.getAll();
-    res.send({status:"success",payload:products})
+    res.send({status:"success",payload:products});
+    
 }
 const getProductById = async(req,res)=>{
     const {pid} = req.params
