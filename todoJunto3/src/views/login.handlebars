@@ -79,5 +79,12 @@
   <a href="/api/sessions/github">Entrar con Github</a>
   <p>No tienes una cuenta? <a href="/register">Regístrate</a></p>
 </div>
+    <script>
+        console.log('prueba')
+    const response = {{responseJson}}; // Asigna aquí tu respuesta JSON
+    if (response.status === 'success' && response.redirectTo) {
+        window.location.href = response.redirectTo;
+    }
+</script>
 </body>
 </html>

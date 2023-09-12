@@ -1,5 +1,5 @@
-const CartDto = require('../dto/Carts.dto.js');
-const { cartsService, productsService } = require("../services/index")
+const CartDto = require('../dto/Carts.dto');
+const { cartsService } = require("../services/index")
 
 const getAllCarts = async (req, res) => {
   try {
@@ -106,3 +106,5 @@ module.exports = {
   deleteCart,
   purchaseFromCart
 };
+
+

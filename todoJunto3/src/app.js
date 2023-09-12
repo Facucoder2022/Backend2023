@@ -9,7 +9,7 @@ const productsRouter = require('./routes/products.router' )
 const cartsRouter = require('./routes/cart.router' )
 const sessionsRouter = require('./routes/session.router')
 const { addLogger } = require('./middleware/logger.middleware')
-const { logger } = require('./config/logger')
+const { logger } = require('./utils/logger')
 
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUiExpress = require('swagger-ui-express')

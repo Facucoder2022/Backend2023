@@ -1,0 +1,200 @@
+[{
+    "title": "Chicago Bulls - Dennis Rodmann",
+    "description": "Chiccago Bulls Jeresey",
+    "thumbnails": "https://m.media-amazon.com/images/I/81W4ZVabRxL._AC_UY741_.jpg, https://m.media-amazon.com/images/I/71TCLeqbvWL._AC_UY550_.jpg",
+    "category": "Jersey",
+    "price": 1890,
+    "stock": 50,
+    "status": true,
+    "code": "CBD12345"
+  },
+  {
+    "title": "Brooklyn Nets - Kevin Durant",
+    "description": "Brooklyn Nets Jersey",
+    "thumbnails": "https://m.media-amazon.com/images/I/81cGIlczBtL._AC_UY550_.jpg, https://m.media-amazon.com/images/I/71yMj8RlrqL._AC_UY550_.jpg",
+    "category": "Jersey",
+    "price": 1990,
+    "stock": 100,
+    "status": true,
+    "code": "BN1234"
+  },
+  {
+    "title": "Los Angeles Lakers - Lebron James",
+    "description": "Los Angeles Lakers Jersey",
+    "thumbnails": "https://m.media-amazon.com/images/I/71XWmQ6LO6L._AC_UX569_.jpg, https://m.media-amazon.com/images/I/61soEhW1GNL._AC_UX569_.jpg",
+    "category": "Jersey",
+    "price": 1990,
+    "stock": 100,
+    "status": true,
+    "code": "LAL1234"
+  },{
+    "title": "Los Angeles Clippers - Kawhi Leonard",
+    "description": "Los Angeles Clippers Jersey",
+    "thumbnails": "https://m.media-amazon.com/images/I/71ndO+VN8WL._AC_UX569_.jpg, https://m.media-amazon.com/images/I/61X+ahwBf9L._AC_UX569_.jpg",
+    "category": "Jersey",
+    "price": 1890,
+    "stock": 100,
+    "status": true,
+    "code": "LAC1234"
+  },
+  {
+    "title": "Toronto Raptors - Vince Carter Retro",
+    "description": "Toronto Raptors Retro Jersey",
+    "thumbnails": "https://m.media-amazon.com/images/I/71Jei+cNuZL._AC_UY550_.jpg, https://m.media-amazon.com/images/I/71VtDdbJRTL._AC_UY550_.jpg",
+    "category": "Jersey",
+    "price": 2490,
+    "stock": 20,
+    "status": true,
+    "code": "TR1234"
+  },
+  {
+    "title": "Kobe Bryant Black Mamba Short",
+    "description": "Kobe Bryant Black Mamba Short - Retro",
+    "thumbnails": ["https://m.media-amazon.com/images/I/7154LqWcKkL._AC_SX569._SX._UX._SY._UY_.jpg, https://m.media-amazon.com/images/I/81T5vsdYWCL._AC_SX569._SX._UX._SY._UY_.jpg"],
+    "category": "Short",
+    "price": 1590,
+    "stock": 100,
+    "status": true,
+    "code": "KB1234"
+  },
+  {
+    "title": "Los Angeles Lakers Training Short",
+    "description": "Los Angeles Lakers Training Short",
+    "thumbnails": "https://m.media-amazon.com/images/I/61SLByuFZxL._AC_UX569_.jpg",
+    "category": "Short",
+    "price": 890,
+    "stock": 100,
+    "status": true,
+    "code": "LALS1234"
+  },
+  {
+    "title": "Utah Jazz Retro Short",
+    "description": "Utah Jazz Short Retro",
+    "thumbnails": "https://m.media-amazon.com/images/I/71cXc1x3pjL._AC_UX569_.jpg, https://m.media-amazon.com/images/I/71+H3Rl2crL._AC_UX569_.jpg",
+    "category": "Short",
+    "price": 990,
+    "stock": 100,
+    "status": true,
+    "code": "UJ1234"
+  },
+  {
+    "title": "Larry Bird Retro Short - Legend",
+    "description": "Larry Bird Retro Short",
+    "thumbnails": "https://m.media-amazon.com/images/I/81PXrUHjYNL._AC_UX679_.jpg, https://m.media-amazon.com/images/I/71oV++x4F3L._AC_UX679_.jpg", 
+    "category": "Short",
+    "price": 1490,
+    "stock": 40,
+    "status": true,
+    "code": "LB1234"
+  },
+  {
+    "title": "Milwaukee Bucks Oficial In Game Short",
+    "description": "Milwaukee Bucks Short",
+    "thumbnails": "https://m.media-amazon.com/images/I/71uKA1lZipL._AC_UX569_.jpg, https://m.media-amazon.com/images/I/71VTWZfj2BL._AC_UX569_.jpg",
+    "category": "Short",
+    "price": 1100,
+    "stock": 100,
+    "status": true,
+    "code": "MB1234"
+  },
+  {
+    "title": "Nike Zoom Freak 3",
+    "description": "Nike Zoom Freak 3 Lt Stone/Bright Crimson/Racer",
+    "thumbnails": "https://m.media-amazon.com/images/I/61DnuSIGbjL._AC_UX535_.jpg, https://m.media-amazon.com/images/I/61IF-DWaz9L._AC_UX535_.jpg, https://m.media-amazon.com/images/I/61YPsaHsF4L._AC_UX535_.jpg, https://m.media-amazon.com/images/I/61T4TOsOksL._AC_UX535_.jpg",
+    "category": "Shoes",
+    "price": 5990,
+    "stock": 100,
+    "status": true,
+    "code": "NF1234"
+  },
+  {
+    "title": "Kyrie Irving Infinity TB",
+    "description": "Kyrie Irving Infinity TB Shoes",
+    "thumbnails": "https://m.media-amazon.com/images/I/71qwkH-BiSL._AC_UY500_.jpg, https://m.media-amazon.com/images/I/71muAp71tZL._AC_UY535_.jpg, https://m.media-amazon.com/images/I/71OequFS16L._AC_UY535_.jpg",
+    "category": "Shoes",
+    "price": 4500,
+    "stock": 200,
+    "status": true,
+    "code": "KI1234"
+  },
+  {
+    "title": "Under Armour Stephen Curry 7",
+    "description": "Under Armour Stephen Curry 7 - Navy Blue",
+    "thumbnails": "https://m.media-amazon.com/images/I/71aFHG+DmjL._AC_SY535._SX._UX._SY._UY_.jpg, https://m.media-amazon.com/images/I/718FIC5K3jL._AC_SY535._SX._UX._SY._UY_.jpg, https://m.media-amazon.com/images/I/71FS21miFsL._AC_SY535._SX._UX._SY._UY_.jpg",
+    "category": "Shoes",
+    "price": 4700,
+    "stock": 100,
+    "status": true,
+    "code": "UA1234"
+  },
+  {
+    "title": "Adidas James Harden Vol 6",
+    "description": "Adidas James Harden Vol 6 - Pulse Aqua",
+    "thumbnails": "https://m.media-amazon.com/images/I/71GXK6eUZhL._AC_UX535_.jpg, https://m.media-amazon.com/images/I/71Z4kb+j2LL._AC_UX535_.jpg, https://m.media-amazon.com/images/I/71CaFqgxa1L._AC_UY695_.jpg, https://m.media-amazon.com/images/I/71CaFqgxa1L._AC_UY695_.jpg",
+    "category": "Shoes",
+    "price": 5790,
+    "stock": 100,
+    "status": true,
+    "code": "AJH1234"
+  },
+  {
+    "title": "Nike Lebron James XIX",
+    "description": "Nike Lebron James XIX - Space Jam Edition",
+    "thumbnails": "https://m.media-amazon.com/images/I/61snozYV3fL._AC_SY535._SX._UX._SY._UY_.jpg, https://m.media-amazon.com/images/I/61JUaPA4bZL._AC_SY535._SX._UX._SY._UY_.jpg, https://m.media-amazon.com/images/I/71P1L6YOzqL._AC_SY535._SX._UX._SY._UY_.jpg",
+    "category": "Shoes",
+    "price": 6990,
+    "stock": 100,
+    "status": true,
+    "code": "LJ1234"
+  },
+  {
+    "title": "Funko POP NBA - Michael Jordan",
+    "description": "Funko POP NBA - Michael Jordan - Multicolor",
+    "thumbnails": "https://m.media-amazon.com/images/I/81Hs8vk0zPL._AC_SX679_.jpg, https://m.media-amazon.com/images/I/51zteSPYcVL._AC_SX679_.jpg",
+    "category": "Merchandise",
+    "price": 1100,
+    "stock": 1000,
+    "status": true,
+    "code": "FK1234"
+  },
+  {
+    "title": "Chicago Bulls ISlide Sandals",
+    "description": "Chicago Bulls ISlide Sandals - Unisex",
+    "thumbnails": "https://m.media-amazon.com/images/I/61M26vnCvYL._AC_UX535_.jpg",
+    "category": "Merchandise",
+    "price": 1600,
+    "stock": 500,
+    "status": true,
+    "code": "MCB1234"
+  },
+  {
+    "title": "NBA Las Vegas SweatShirt",
+    "description": "NBA Las Vegas SweatShirt",
+    "thumbnails": "https://m.media-amazon.com/images/I/615tXFE1vSL._AC_UX466_.jpg, https://m.media-amazon.com/images/I/611WEmVhYmL._AC_UX466_.jpg",
+    "category": "Merchandise",
+    "price": 3900,
+    "stock": 100,
+    "status": true,
+    "code": "NBA1234"
+  },
+  {
+    "title": "Stephen Curry NBA Bracelet",
+    "description": "Stephen Curry NBA Bracelet - Silicone/Metal",
+    "thumbnails": "https://m.media-amazon.com/images/I/71Lyj368bzL._AC_UX569_.jpg, https://m.media-amazon.com/images/I/814C7IoQZLL._AC_UX569_.jpg",
+    "category": "Merchandise",
+    "price": 1200,
+    "stock": 1000,
+    "status": true,
+    "code": "SC1234"
+  },
+  {
+    "title": "NBA Boston Celtics Cup warmer and Cup",
+    "description": "Keeps your favourite drink warm",
+    "thumbnails": "https://m.media-amazon.com/images/I/71j0DkDluIL._AC_SX569_.jpg, https://m.media-amazon.com/images/I/71wwMOS6trL._AC_SX569_.jpg, https://m.media-amazon.com/images/I/71Eqxft3fdL._AC_SX569_.jpg",
+    "category": "Merchandise",
+    "price": 1900,
+    "stock": 1000,
+    "status": true,
+    "code": "BCM1234"
+  }    
+]

@@ -23,20 +23,29 @@ const authenticationMiddleware = (req,res,next) =>{
      res.render('index', testUser);
  })
 
-// router.get('/home', async (req, res) =>{
-//     let products = await getProducts();
-//     console.log = (message) =>{
-//         req.logger.info(message);
-//     }
-//     res.render('home', { products });
-// })
-
-router.get('/register',(req,res)=>{
-    res.render('registerForm');
+router.get('/home', async (req, res) =>{
+    let products = await getProducts();
+    console.log = (message) =>{
+        req.logger.info(message);
+    }
+    res.render('home', { products });
 })
 
-router.get('/login',(req,res)=>{
-    res.render('login');
+
+router.get('/register', (req, res) =>{
+    let testUser = {
+        name: "Facu",
+        last_name : "Manta"
+    }
+    res.render('registerForm', testUser);
+})
+
+router.get('/login', (req, res) =>{
+    let testUser = {
+        name: "Facu",
+        last_name : "Manta"
+    }
+    res.render('login', testUser);
 })
 
 router.get('/profile/:uid', authenticationMiddleware ,async(req,res)=>{

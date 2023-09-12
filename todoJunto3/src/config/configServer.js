@@ -1,5 +1,6 @@
 const { MongoSingleton } = require('./singleton')
 const { commander } = require('../utils/commander')
+const {logger} = require ('../utils/logger')
 const dotenv = require('dotenv')
 
 const { mode } = commander.opts()

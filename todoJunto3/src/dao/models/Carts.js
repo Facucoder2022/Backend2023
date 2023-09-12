@@ -1,19 +1,19 @@
 const { Schema, model } = require("mongoose");
+const {ProductSchema}  = require("./Products");
 
 const collection = "carts";
 
-const cartSchema = new Schema({
-    products: [{
-        product: {
-            type: Schema.Types.ObjectId,
-            ref: 'products'
-        },
-        quantity: {
-            type: Number,
-            required: true
-        }
-    }]
-});
+const cartSchema = new Schema(
+    {
+      email: { type: String, require: true },
+      products: { type: [ProductSchema], require: true },
+      delivery_address: { type: String, require: true },
+      total: { type: Number, default: 0 },
+    },
+    {
+      timestamps: true,
+    }
+  );
 
 const cartModel = model(collection, cartSchema);
 
